@@ -6,7 +6,7 @@ import me.hfox.aphelion.exception.CommandUsageException;
 import me.hfox.aphelion.Aphelion;
 import me.hfox.aphelion.exception.CommandException;
 import me.hfox.aphelion.exception.CommandPermissionException;
-import org.hfox.commons.utils.reflection.SimpleMethod;
+import me.hfox.aphelion.utils.reflection.SimpleMethod;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
