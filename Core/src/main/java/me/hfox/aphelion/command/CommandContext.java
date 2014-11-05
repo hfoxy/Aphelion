@@ -4,6 +4,7 @@ import me.hfox.aphelion.Aphelion;
 import me.hfox.aphelion.exception.CommandException;
 import me.hfox.aphelion.utils.Utils;
 
+import java.lang.IndexOutOfBoundsException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -137,16 +138,48 @@ public class CommandContext<U> {
         return args[position];
     }
 
+    public String getString(int position, String def) {
+        try {
+            return getString(position);
+        } catch (IndexOutOfBoundsException ex) {
+            return def;
+        }
+    }
+
     public int getInteger(int position) {
         return Integer.parseInt(args[position]);
+    }
+
+    public int getInteger(int position, int def) {
+        try {
+            return getInteger(position);
+        } catch (IndexOutOfBoundsException ex) {
+            return def;
+        }
     }
 
     public double getDouble(int position) {
         return Double.parseDouble(args[position]);
     }
 
+    public double getDouble(int position, double def) {
+        try {
+            return getDouble(position);
+        } catch (IndexOutOfBoundsException ex) {
+            return def;
+        }
+    }
+
     public float getFloat(int position) {
         return Float.parseFloat(args[position]);
+    }
+
+    public float getFloat(int position, float def) {
+        try {
+            return getFloat(int position);
+        } catch (IndexOutOfBoundsException ex) {
+            return def;
+        }
     }
 
     public boolean getBoolean(int position) {
@@ -156,6 +189,14 @@ public class CommandContext<U> {
             return false;
         } else {
             throw new IllegalArgumentException("Boolean must either be true/false/yes/no");
+        }
+    }
+
+    public boolean getBoolean(int position, boolean def) {
+        try {
+            return getBoolean(position);
+        } catch (IndexOutOfBoundsException ex) {
+            return def;
         }
     }
 
