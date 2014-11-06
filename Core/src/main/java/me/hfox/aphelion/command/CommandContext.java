@@ -176,7 +176,7 @@ public class CommandContext<U> {
 
     public float getFloat(int position, float def) {
         try {
-            return getFloat(int position);
+            return getFloat(position);
         } catch (IndexOutOfBoundsException ex) {
             return def;
         }
