@@ -5,11 +5,11 @@ public class CommandUsageException extends CommandException {
     private static final long serialVersionUID = 6822127098156437695L;
 
     public CommandUsageException() {
-        super("Illegal command usage");
+        this(null);
     }
 
     public CommandUsageException(String message) {
-        super(message);
+        super(message == null || message.length() < 1 ? "Illegal command usage" : message);
     }
 
 }
