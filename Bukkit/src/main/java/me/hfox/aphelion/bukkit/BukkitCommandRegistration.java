@@ -53,4 +53,12 @@ public class BukkitCommandRegistration extends CommandRegistration<CommandSender
         return commands;
     }
 
+    public void update(CommandHandler<CommandSender> handler) {
+        BukkitCommand command = new BukkitCommand(bukkit, handler);
+        Map<String, Command> commands = getCommand(handler);
+        for (String string : commands.keySet()) {
+            knownCommands.put(string, command);
+        }
+    }
+
 }

@@ -99,4 +99,14 @@ public class CommandRegistration<U> {
         remove.forEach(commands::remove);
     }
 
+    public void update() {
+        for (CommandHandler<U> handler : commands) {
+            update(handler);
+        }
+    }
+
+    public void update(CommandHandler<U> handler) {
+        // nothing
+    }
+
 }
