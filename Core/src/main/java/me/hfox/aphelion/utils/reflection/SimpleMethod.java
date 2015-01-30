@@ -14,6 +14,14 @@ public class SimpleMethod {
         this.method.setAccessible(true);
     }
 
+    public Class<?> getMethodClass() {
+        return method.getDeclaringClass();
+    }
+
+    public Method getMethod() {
+        return method;
+    }
+
     public Class<?> result() {
         return method.getReturnType();
     }

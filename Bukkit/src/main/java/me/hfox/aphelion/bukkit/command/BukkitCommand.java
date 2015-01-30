@@ -21,6 +21,10 @@ public class BukkitCommand extends Command {
         this.command = command;
     }
 
+    public CommandHandler<CommandSender> getCommand() {
+        return command;
+    }
+
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         try {

@@ -69,4 +69,34 @@ public class CommandRegistration<U> {
         }
     }
 
+    public void remove(CommandHandler<U> handler) {
+        commands.remove(handler);
+    }
+
+    public void remove(Class<?> cls) {
+        List<CommandHandler<U>> remove = new ArrayList<>();
+
+        commands.stream().filter(handler -> handler instanceof StaticCommandHandler).forEach(handler -> {
+            StaticCommandHandler<U> command = (StaticCommandHandler<U>) handler;
+            if (command.getMethod().getMethodClass().equals(cls)) {
+                remove.add(command);
+            }
+        });
+
+        remove.forEach(commands::remove);
+    }
+
+    public void remove(Method method) {
+        List<CommandHandler<U>> remove = new ArrayList<>();
+
+        commands.stream().filter(handler -> handler instanceof StaticCommandHandler).forEach(handler -> {
+            StaticCommandHandler<U> command = (StaticCommandHandler<U>) handler;
+            if (command.getMethod().getMethod().equals(method)) {
+                remove.add(command);
+            }
+        });
+
+        remove.forEach(commands::remove);
+    }
+
 }

@@ -36,6 +36,10 @@ public class StaticCommandHandler<U> extends SimpleCommandHandler<U> {
         this.flags = command.flags().toCharArray();
     }
 
+    public SimpleMethod getMethod() {
+        return method;
+    }
+
     public void handle(U sender, CommandContext<U> context) throws Exception {
         if (permission != null && !context.hasPermission(sender, permission)) {
             throw new CommandPermissionException();
