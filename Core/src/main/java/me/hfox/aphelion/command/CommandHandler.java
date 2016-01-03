@@ -26,7 +26,7 @@ public interface CommandHandler<U> {
     public default void invoke(Aphelion<U> aphelion, U sender, String label, String[] args) throws CommandException {
         try {
             handle(sender, create(aphelion, label, args));
-        } catch (CommandException | RuntimeException ex) {
+        } catch (CommandException ex) {
             throw ex;
         } catch (Exception ex) {
             throw new CommandException(ex);
